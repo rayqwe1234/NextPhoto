@@ -6,11 +6,9 @@
 
 A native Android gallery for photos stored in Nextcloud. Available in English, Traditional Chinese, and Simplified Chinese, with large headings, date groups, immersive photo grids, and light and dark themes. No ads, paid features, or third-party analytics.
 
-**Current version: 0.1.7, signed Release build.** Primary compatibility targets are Nextcloud 34.0.3 and Android 16; Android 10 is the minimum. Live-server integration and background backup on physical devices still require validation. Start with test photos.
+**Current version: 0.1.7, signed Release build.** Primary compatibility targets are Nextcloud 34.0.3 and Android 16; Android 10 is the minimum. 
 
 This is an independently developed client, not an official Nextcloud product. It needs no additional backend and does not change your server configuration.
-
-This release renames Nextcloud Photo to NextPhoto and introduces a white aperture icon on a blue background. The application ID and signing certificate remain compatible with earlier releases. Existing encrypted albums continue to use `Nextcloud Photo Vault`, and exported files continue to use `Download/Nextcloud Photo`.
 
 ## Languages
 
