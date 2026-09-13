@@ -6,11 +6,9 @@
 
 以 Nextcloud 為照片來源的原生 Android 相簿。支援繁體中文、簡體中文與英文介面，採大標題、日期分組、沉浸式網格，支援淺色／深色模式。無廣告、無付費功能、無第三方分析追蹤。
 
-**目前版本：0.1.7，Release 正式簽名版。** 主要適配目標為 Nextcloud 34.0.3、Android 16；最低 Android 10。實際伺服器互通和實體手機背景備份仍須完成驗收，請先使用測試照片。
+**目前版本：0.1.7，Release 正式簽名版。** 主要適配目標為 Nextcloud 34.0.3、Android 16；最低 Android 10。
 
 這是獨立開發的用戶端，並非 Nextcloud 官方產品。不需要部署額外後端，也不會替你變更伺服器設定。
-
-本版由 Nextcloud Photo 更名為 NextPhoto，使用新的藍底白色光圈圖標。套件識別及簽名保持相容，既有加密相簿目錄 `Nextcloud Photo Vault` 與匯出位置 `Download/Nextcloud Photo` 延續使用。
 
 ## 語言
 
