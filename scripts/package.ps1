@@ -8,7 +8,7 @@ $apkTarget = Join-Path $artifactDir 'NextPhoto-v0.1.7.apk'
 Copy-Item -LiteralPath $apkSource -Destination $apkTarget
 
 # Explicit allowlist: never include credentials, tools, caches or private signing material.
-$sourceFiles = @('README.md','THIRD_PARTY.md','LICENSE','.gitignore','.gitattributes','build.gradle.kts','settings.gradle.kts','gradle.properties','gradlew','gradlew.bat','app/build.gradle.kts','app/proguard-rules.pro') |
+$sourceFiles = @('README.md','README.zh-TW.md','README.zh-CN.md','THIRD_PARTY.md','LICENSE','.gitignore','.gitattributes','build.gradle.kts','settings.gradle.kts','gradle.properties','gradlew','gradlew.bat','app/build.gradle.kts','app/proguard-rules.pro') |
     ForEach-Object { Get-Item -LiteralPath (Join-Path $taskRoot $_) }
 foreach ($folder in @('app/src','app/schemas','gradle','scripts','docs')) {
     $sourceFiles += Get-ChildItem -LiteralPath (Join-Path $taskRoot $folder) -Recurse -File

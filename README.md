@@ -1,103 +1,107 @@
 # NextPhoto
 
-[下載最新 APK](https://github.com/rayqwe1234/NextPhoto/releases/latest) · [版本紀錄](https://github.com/rayqwe1234/NextPhoto/releases)
+[English](README.md) · [繁體中文](README.zh-TW.md) · [简体中文](README.zh-CN.md)
 
-以 Nextcloud 為照片來源的原生 Android 相簿。支援繁體中文、簡體中文與英文介面，採大標題、日期分組、沉浸式網格，支援淺色／深色模式。無廣告、無付費功能、無第三方分析追蹤。
+[Download the latest APK](https://github.com/rayqwe1234/NextPhoto/releases/latest) · [Release history](https://github.com/rayqwe1234/NextPhoto/releases)
 
-**目前版本：0.1.7，Release 正式簽名版。** 主要適配目標為 Nextcloud 34.0.3、Android 16；最低 Android 10。實際伺服器互通和實體手機背景備份仍須完成驗收，請先使用測試照片。
+A native Android gallery for photos stored in Nextcloud. Available in English, Traditional Chinese, and Simplified Chinese, with large headings, date groups, immersive photo grids, and light and dark themes. No ads, paid features, or third-party analytics.
 
-這是獨立開發的用戶端，並非 Nextcloud 官方產品。不需要部署額外後端，也不會替你變更伺服器設定。
+**Current version: 0.1.7, signed Release build.** Primary compatibility targets are Nextcloud 34.0.3 and Android 16; Android 10 is the minimum. Live-server integration and background backup on physical devices still require validation. Start with test photos.
 
-本版由 Nextcloud Photo 更名為 NextPhoto，使用新的藍底白色光圈圖標。套件識別及簽名保持相容，既有加密相簿目錄 `Nextcloud Photo Vault` 與匯出位置 `Download/Nextcloud Photo` 延續使用。
+This is an independently developed client, not an official Nextcloud product. It needs no additional backend and does not change your server configuration.
 
-## 語言
+This release renames Nextcloud Photo to NextPhoto and introduces a white aperture icon on a blue background. The application ID and signing certificate remain compatible with earlier releases. Existing encrypted albums continue to use `Nextcloud Photo Vault`, and exported files continue to use `Download/Nextcloud Photo`.
 
-介面自動跟隨系統的第一語言：繁體中文（含台灣、香港、澳門）、簡體中文及英文。其他語言一律使用英文，即使系統的第二語言是中文。切換系統語言後重新開啟 App 即可。檔名、相簿名稱與既有備份路徑不會被翻譯或改名；伺服器傳回的訊息及先前儲存的歷史錯誤保留原文。
+## Languages
 
-## 安裝與登入
+The interface follows the first language in your system language list: Traditional Chinese (including Taiwan, Hong Kong, and Macao), Simplified Chinese, or English. All other languages use English, even if Chinese is your second system language. Reopen the app after changing your system language. File names, album names, and existing backup paths are not translated or renamed. Server messages and previously saved errors retain their original text.
 
-1. 安裝交付的 `NextPhoto-v0.1.7.apk`。Android 如有提示，允許目前使用的檔案管理器安裝 App。沿用相同簽名，可直接覆蓋更新 0.1.0／0.1.1／0.1.2／0.1.3／0.1.4／0.1.5／0.1.6，保留帳號與資料。
-2. 輸入 Nextcloud 的 **HTTPS** 網址，可以包含自訂連接埠或安裝子路徑，例如 `https://cloud.example.com:8443/nextcloud`。
-3. 點選「連接我的 Nextcloud」，在瀏覽器完成登入與授權，再返回 App。App 不需要你的主密碼。
-4. 首次索引會逐步載入照片；可在設定指定雲端掃描資料夾。Photos 不可用時仍可瀏覽檔案照片庫與資料夾，原因會顯示於相簿分頁。
+## Installation and sign-in
 
-不支援忽略憑證驗證、自簽憑證繞過或明文 HTTP。若伺服器使用私有憑證，請先配置 Android 信任的憑證。
+1. Install `NextPhoto-v0.1.7.apk`. If Android prompts you, allow your file manager to install apps. The signing certificate is unchanged, so you can update versions 0.1.0 / 0.1.1 / 0.1.2 / 0.1.3 / 0.1.4 / 0.1.5 / 0.1.6 directly while keeping your account and data.
+2. Enter your Nextcloud **HTTPS** URL. Custom ports and installation subpaths are supported, for example `https://cloud.example.com:8443/nextcloud`.
+3. Tap **Connect to my Nextcloud**, authorize the app in your browser, and return to the app. Your main account password is not required by the app.
+4. Photos appear progressively during initial indexing. Choose a cloud folder to scan in Settings. If Photos is unavailable, the file-based photo library and folder browser remain available; the Albums tab explains why.
 
-## 功能與操作
+Certificate verification cannot be disabled, and neither self-signed certificate bypasses nor plain HTTP are supported. If your server uses a private certificate, configure Android to trust it first.
 
-| 畫面 | 操作 |
+## Features and controls
+
+| Screen | Features |
 | --- | --- |
-| 照片 | 按日分組、日期跳轉、2–5 欄網格、檔名與相簿名搜尋、影片／收藏／離線篩選 |
-| 照片瀏覽 | 左右滑動、雙指縮放、載入原圖、影片播放、詳細 EXIF 資訊 |
-| 多選 | 長按照片，加入 Photos 相簿或加入離線下載 |
-| 相簿 | 建立、改名、加入／移除成員，與 Nextcloud Photos 互通；另有資料夾瀏覽 |
-| 加密相簿 | 真實加密照片、影片、檔名、相簿名稱及縮圖；密碼／指紋解鎖，退出清除解密工作階段 |
-| 更多操作 | 檔案移動與改名、手機下載、系統分享、唯讀公開連結、密碼與到期日、撤銷連結 |
-| 編輯 | 可拖曳裁剪框、四角與邊緣縮放、三分線構圖、−180° 至 +180° 連續旋轉滑桿、鏡像、亮度；以原解析度另存 JPEG 副本並上傳，不覆蓋原檔 |
-| 傳輸 | 持久化上傳／下載佇列、進度、取消、錯誤提示與重試、清空歷史記錄 |
-| 設定 | 帳號容量、最後同步、掃描範圍、自動備份、網路限制、外觀、快取與登出 |
+| Photos | Daily groups, date jump, 2–5-column grids, file and album name search, video / favorite / offline filters |
+| Viewer | Swipe between photos, pinch to zoom, load originals, play videos, inspect EXIF metadata |
+| Selection | Long-press photos to add them to a Photos album or queue offline downloads |
+| Albums | Create, rename, add and remove members in sync with Nextcloud Photos; browse folders separately |
+| Encrypted albums | Encrypt photos, videos, file names, album names, and thumbnails; unlock with a password or fingerprint; clear the decrypted session on exit |
+| More actions | Move and rename files, download to your phone, system sharing, read-only public links with passwords and expiry dates, revoke links |
+| Editor | Drag the crop frame, resize corners and edges, use a rule-of-thirds grid, rotate continuously from −180° to +180°, mirror, adjust brightness; upload a separate full-resolution JPEG without overwriting the original |
+| Transfers | Persistent upload / download queue, progress, cancellation, errors and retries, clear history |
+| Settings | Storage quota, last sync, scan scope, auto backup, network restrictions, appearance, cache, sign-out |
 
-拍攝日期優先採用伺服器提供的中繼資料；沒有資料時先用修改日期。讀取 EXIF 時會補齊缺少的拍攝日期。首次索引不會為取得 EXIF 大量下載原圖。
+Capture dates use server metadata when available and otherwise fall back to modification dates. Reading EXIF can fill in missing capture dates later. Initial indexing does not download large numbers of originals just to obtain EXIF data.
 
-編輯時直接拖曳裁剪框內部可移動範圍，拖曳四角或邊緣可調整大小；框外區域會變暗。橫向拖動旋轉滑桿可連續調整角度，也可點選「歸零」。裁剪依旋轉後的照片座標輸出，預覽框選與另存結果一致；傾斜旋轉產生的空白邊緣可用裁剪框移除。「重設」恢復全部編輯設定。
+Drag inside the crop frame to move it, or drag its corners and edges to resize it. The area outside the frame is dimmed. Drag the rotation slider to adjust the angle continuously, or tap **Reset angle**. Cropping uses the rotated photo's coordinates so the saved image matches the preview. Crop away blank edges introduced by rotation as needed. **Reset** restores all editing settings.
 
-「儲存到手機下載資料夾」會匯出到 `Download/Nextcloud Photo`；「離線保存」保存在 App 私有空間。匯出的檔案不會因登出而刪除。清除離線副本只影響 App 本機資料。
+**Save to phone Downloads** exports to `Download/Nextcloud Photo`; **Save offline** stores files in the app's private storage. Signing out does not delete exported files. Clearing an offline copy affects only local app data.
 
-傳輸頁的「清空歷史記錄」會移除已完成、失敗及已取消的列表記錄，保留等待中與傳輸中的工作；不刪除照片，並保留備份去重資料，避免再次上傳已備份項目。沒有可清除的記錄時按鈕停用。
+**Clear history** in Transfers removes completed, failed, and cancelled list entries while keeping queued and active transfers. It does not delete photos and retains backup deduplication records to avoid uploading completed backups again. The button is disabled when there is no history to clear.
 
-## 加密相簿
+## Encrypted albums
 
-在「相簿 → 加密相簿」建立，支援從手機或雲端匯入加密副本，原檔保留。退出或進入背景立即鎖定，解密照片與影片不寫入磁碟；指紋入口在相簿鎖定頁固定顯示；首次使用需先用相簿密碼解鎖，再按頁面上方的「啟用指紋解鎖」。尚未登錄指紋或裝置不支援時會顯示原因。支援每張 32 MiB 以內的圖片及每部 32 GiB 以內的影片；影片分塊加密上傳、按需解密播放並支援進度拖曳，不使用明文磁碟快取。加密傳輸需停留在前景，不支援背景續傳。Nextcloud Photos 網頁無法預覽密文。請妥善保存相簿密碼及完整雲端資料夾備份。
+Create an album under **Albums → Encrypted albums**. Import encrypted copies from your phone or cloud library while keeping the originals. Albums lock immediately on exit or when the app goes into the background; decrypted photos and videos are not written to disk. The fingerprint entry is always visible on the locked album screen. For initial setup, unlock with the album password first, then tap **Enable fingerprint unlock** at the top. If no fingerprint is enrolled or the device is unsupported, the app explains the reason.
 
-詳見 [加密相簿使用、格式與清除範圍](docs/ENCRYPTED_ALBUMS.md)。
+Images up to 32 MiB each and videos up to 32 GiB each are supported. Videos use encrypted chunk uploads and on-demand decrypted playback with seeking, without a plaintext disk cache. Encrypted transfers require the app to stay in the foreground and do not support background resumption. Nextcloud Photos cannot preview the encrypted files on the web. Keep your album password and a complete backup of the cloud folder safe.
 
-## 手動上傳與自動備份
+See [encrypted album usage, format, and cleanup behavior](docs/ENCRYPTED_ALBUMS.md) (Traditional Chinese).
 
-- 手動上傳：照片頁右上角「＋」，以 Android 系統選擇器選取照片或影片。
-- 自動備份預設關閉。在設定選擇手機來源資料夾、儲存雲端上傳目的地，再啟用自動備份。備份檔案按 `年/月` 整理。
-- 使用系統資料夾授權，不要求讀取整個手機相簿。拒絕或取消授權時，不開始備份；撤回授權後會顯示錯誤並要求重新選取。
-- 預設僅使用 Wi-Fi 等不計量網路。Android 會自行安排背景執行時間，省電模式、強制停止 App 或廠商背景限制可能延後備份。可使用「立即掃描備份」觸發掃描。
-- 單向備份：手機刪除不會刪除雲端檔案。相同來源、大小、修改時間及目的地不重複排程；同名檔案會產生帶識別碼的新名稱。
-- 大於 10 MiB 的檔案使用 10 MiB 分塊，最終組合禁止覆蓋，支援重試時復用已上傳分塊。未完成的伺服器暫存由 Nextcloud 的到期機制處理。
-- App 先建立本機上傳暫存，手機需有足夠可用空間。上傳成功經伺服器確認後才標記完成；程序中斷後若目的檔已存在，會比對 SHA-256 以避免誤判成功或重複上傳。
+## Manual uploads and auto backup
 
-## 刪除與隱私
+- Manual upload: tap **+** at the top right of Photos and select photos or videos with Android's system picker.
+- Auto backup is off by default. Select a source folder on your phone in Settings, save the cloud upload destination, and enable auto backup. Files are organized by `year/month`.
+- Backup uses system folder access rather than requiring access to the entire phone gallery. Denying or cancelling access does not start backup. Revoked access produces an error and asks you to select the folder again.
+- Transfers use Wi-Fi or other unmetered networks by default. Android schedules background work; battery saving, force-stopping the app, or manufacturer restrictions may delay backups. Use **Scan for backups now** to request a scan.
+- Backup is one-way: deleting a phone file does not delete its cloud copy. The same source, size, modification time, and destination are not scheduled twice. Name collisions receive a new name with an identifier.
+- Files larger than 10 MiB use 10 MiB chunks. Final assembly forbids overwriting, and retries can reuse uploaded chunks. Nextcloud's expiry mechanism handles unfinished temporary server uploads.
+- The app stages uploads locally, so your phone needs sufficient free space. A transfer is marked complete only after server confirmation. If the destination already exists after a process interruption, the app compares SHA-256 hashes to avoid falsely reporting success or uploading a duplicate.
 
-- 「從相簿移除」只刪除 Photos 相簿成員關係，原始照片保留。
-- 「刪除雲端原檔」需要確認；可否復原與保留期限依伺服器回收桶能力。刪除與移動使用 ETag 條件，防止對已被他人更新的檔案執行過時操作。
-- 登入憑證由 Android Keystore 保護。系統備份與裝置搬移排除 App 私有資料；網路請求不會將憑證傳往其他網域。
-- 縮圖快取上限 1 GB，指定離線原檔另外計算。登出停止傳輸並清除登入憑證、索引及 App 私有副本。
+## Deletion and privacy
 
-## 已知邊界
+- **Remove from this album** removes only the Photos album membership, keeping the original photo.
+- **Delete cloud original** requires confirmation. Recovery and retention depend on your server's trash support. Deletion and moves use ETag conditions to avoid stale operations on files updated by someone else.
+- Android Keystore protects login credentials. System backup and device transfer exclude private app data; network requests do not send credentials to other domains.
+- The thumbnail cache is limited to 1 GB. Explicitly saved offline originals are counted separately. Signing out stops transfers and clears credentials, the index, and private app copies.
 
-- 同時登入一個帳號。使用 Photos 的個人相簿介面；Memories、人物辨識、地圖及智慧相簿不在第一版範圍。
-- 格式支援取決於 Android 解碼器與伺服器預覽設定。無法顯示時可下載交給其他 App；沒有內建影片轉碼、RAW 編輯或影片剪裁。
-- 編輯輸出 JPEG，不保留動態照片、HDR 或動畫資訊。超過 4000 萬像素或超出裝置可用記憶體的原圖會提示使用外部編輯器，不靜默縮小解析度。
-- 伺服器沒有縮圖或權限不足時會顯示狀態，不會把其他帳號的快取拿來替代。
-- 自動備份取決於 Android 排程，並非即時常駐同步；重新安裝 App 後原本的備份歷史不會保留。
-- 完整測試紀錄與尚待驗收項目見 [測試報告](docs/TESTING.md)。
+## Known limitations
 
-## 從原始碼建置
+- One signed-in account at a time. The app uses Photos' personal album interface; Memories integration, face recognition, maps, and smart albums are outside the first release's scope.
+- Format support depends on Android decoders and server preview settings. Unsupported files can be downloaded and opened in another app. There is no built-in video transcoding, RAW editing, or video trimming.
+- Editing produces JPEG files and does not preserve motion-photo, HDR, or animation data. Originals above 40 megapixels or beyond available device memory prompt you to use an external editor instead of silently reducing resolution.
+- Missing server thumbnails and insufficient permissions are reported explicitly; another account's cached files are never substituted.
+- Auto backup depends on Android scheduling and is not an always-running, real-time sync service. Reinstalling the app does not preserve previous backup history.
+- See the [test report](docs/TESTING.md) (Traditional Chinese) for completed tests and pending acceptance checks.
 
-需要 JDK **21**（Android 16 Robolectric 測試需要）、Android SDK Platform 36、Build Tools 36.0.0。工程使用 Gradle 9.4.1、Android Gradle Plugin 9.2.0、Kotlin／Compose compiler 2.3.10，依賴版本固定於 Gradle 設定。
+## Build from source
 
-設定 `JAVA_HOME`、`ANDROID_HOME`，或在未追蹤的 `local.properties` 設定 `sdk.dir`，然後執行：
+Requirements: JDK **21** (needed by Android 16 Robolectric tests), Android SDK Platform 36, and Build Tools 36.0.0. The project uses Gradle 9.4.1, Android Gradle Plugin 9.2.0, and Kotlin / Compose compiler 2.3.10. Dependency versions are pinned in the Gradle configuration.
+
+Set `JAVA_HOME` and `ANDROID_HOME`, or configure `sdk.dir` in an untracked `local.properties`, then run:
 
 ```powershell
 .\gradlew.bat :app:assembleDebug
 .\gradlew.bat :app:testDebugUnitTest :app:lintDebug
 ```
 
-Debug APK 位於 `app/build/outputs/apk/debug/app-debug.apk`。`assembleRelease` 會執行程式碼與資源縮減；若沒有發佈金鑰，輸出為未簽名 APK。
+The debug APK is written to `app/build/outputs/apk/debug/app-debug.apk`. `assembleRelease` shrinks code and resources; without a distribution key, it produces an unsigned APK.
 
-本機交付金鑰位於未追蹤的 `.signing/`，**請自行安全備份此目錄，未來更新需使用相同金鑰**。金鑰不包含於原始碼壓縮檔或 Git。自行建置時可建立 `.signing/signing.properties`，填入 `storeFile`、`storePassword`、`keyAlias`、`keyPassword`。
+Local distribution keys live in the untracked `.signing/` directory. **Back up this directory securely: future updates require the same key.** Keys are not included in source archives or Git. For your own builds, create `.signing/signing.properties` with `storeFile`, `storePassword`, `keyAlias`, and `keyPassword`.
 
-## 原始碼結構
+## Source layout
 
-- `account`：Login Flow v2 憑證儲存。
-- `network`：Nextcloud DAV／OCS 通訊、網址驗證與串流 XML 解析。
-- `data`：Room、Paging、增量照片索引與相簿關係。
-- `transfer`：WorkManager 備份與可恢復傳輸。
-- `ui`：Compose 照片庫、瀏覽器、編輯器、傳輸與設定。
+- `account`: Login Flow v2 credential storage.
+- `network`: Nextcloud DAV / OCS communication, URL validation, and streaming XML parsing.
+- `data`: Room, Paging, incremental media indexing, and album membership.
+- `transfer`: WorkManager backup and resumable transfers.
+- `ui`: Compose library, viewer, editor, transfers, and settings.
 
-協定參考與第三方元件見 [THIRD_PARTY.md](THIRD_PARTY.md)。
+Protocol references and third-party components are listed in [THIRD_PARTY.md](THIRD_PARTY.md) (Traditional Chinese).
