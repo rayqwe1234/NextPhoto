@@ -1,0 +1,17 @@
+.gradle/
+.kotlin/
+**/build/
+local.properties
+*.jks
+*.keystore
+.tools/
+artifacts/
+.signing/
+*.log
+
+# Local diagnostics and editor settings
+localization-inventory.txt
+.idea/
+*.iml
+.env
+.env.*
